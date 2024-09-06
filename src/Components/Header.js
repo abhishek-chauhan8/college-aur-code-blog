@@ -1,20 +1,38 @@
 import React, { useState } from "react";
 import collegeaurcode from "../assets/collegeaurcode.svg";
 import blog from "../assets/blog.svg";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [searchText, setSearchText] = useState("");
+  const navigate = useNavigate();
 
   function changeHandler(event) {
     setSearchText(event.target.value);
-    // console.log(searchText);
   }
+
+  function clickHandler() {
+    navigate("/");
+  }
+
   return (
     <div className=" flex justify-center items-center bg-[#0A0A23] py-1 fixed top-0 w-full  ">
-      <nav className="flex justify-evenly gap-[20rem] w-[1220px] ">
+      <nav className="flex justify-evenly gap-[20rem] w-[1220px]">
         <div className="flex">
-          <img src={collegeaurcode} alt="Taken by aliens" width="300" />
-          <img src={blog} alt="trying to recover it" width="80" />
+          <img
+            src={collegeaurcode}
+            alt="Taken by aliens"
+            width="300"
+            onClick={clickHandler}
+            className="cursor-pointer "
+          />
+          <img
+            src={blog}
+            alt="trying to recover it"
+            width="80"
+            onClick={clickHandler}
+            className="cursor-pointer "
+          />
         </div>
 
         <div className="flex gap-[5rem] justify-betwe text-center items-center  ">
